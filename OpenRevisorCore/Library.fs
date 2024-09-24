@@ -3,8 +3,25 @@
 
 module Questions =
     
-    /// Represents a question with a text and an answer.
-    type Question = { Text: string; Answer: string }
+    /// Represents a hidden question with a text and and answer.
+    type Question = private { Text: string; Answer: string }
+
+    /// <summary>
+    /// Create a new question with the given text and answer.
+    /// </summary>
+    /// <param name="text">The text of the question.</param>
+    /// <param name="answer">The answer to the question.</param>
+    /// <returns>A new question with the given text and answer.</returns>
+    let createQuestion text answer =
+        { Text = text; Answer = answer }
+
+    /// <summary>
+    /// Get the text of a question.
+    /// </summary>
+    /// <param name="question">The question to get the text from.</param>
+    /// <returns>The text of the question.</returns>
+    let getText question = 
+        question.Text
 
     /// <summary>
     /// Checks if the given answer is correct for the given question.
@@ -12,5 +29,5 @@ module Questions =
     /// <param name="question">The question that is being answered.</param>
     /// <param name="givenAnswer">The answer that needs to be checked.</param>
     /// <returns>True if the answer matches, false otherwise.</returns>
-    let isCorrect (question: Question) (givenAnswer: string) =
+    let isCorrect question givenAnswer =
         question.Answer.Equals(givenAnswer, System.StringComparison.OrdinalIgnoreCase)
