@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Library.fs" />
+    <Compile Include="Modules\Questions.fs" />
+    <Compile Include="Modules\Lists.fs" />
   </ItemGroup>
 
 </Project>
