@@ -1,4 +1,6 @@
-﻿using OpenRevisorCore;
+﻿using Microsoft.FSharp.Collections;
+using Microsoft.FSharp.Core;
+using OpenRevisorCore;
 
 namespace OpenRevisorConsole
 {
@@ -7,12 +9,15 @@ namespace OpenRevisorConsole
         static void Main(string[] args)
         {
             // Create a simple question and print the text to the console.
-            Questions.Question question = Questions.createQuestion("1", "A");
-            Console.WriteLine(Questions.getText(question));
+            FSharpResult<Questions.Question, Questions.QuestionError> question1 = Questions.createQuestion("1", "A");
+            //Questions.Question question2 = Questions.createQuestion("2", "B");
 
-            // Let the user put in an answer and check if it is correct.
-            string answer = Console.ReadLine() ?? "";
-            Console.WriteLine(Questions.isCorrect(question, answer));
+            //// Create a simple list and print the text to the console.
+            //FSharpList<Questions.Question> list = Lists.createQuestionList();
+            //list = Lists.addQuestion(list, question1);
+            //list = Lists.addQuestion(list, question2);
+
+            //list.ToList().ForEach(q => System.Console.WriteLine(Questions.getText(q)));
         }
     }
 }

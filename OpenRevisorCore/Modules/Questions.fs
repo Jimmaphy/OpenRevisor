@@ -1,10 +1,16 @@
 ﻿namespace OpenRevisorCore
 
+open System
 
 module Questions =
     
     /// Represents a hidden question with a text and and answer.
     type Question = private { Text: string; Answer: string }
+
+    /// Represents possible errors when creating a question.
+    type QuestionError =
+        | EmptyText
+        | EmptyAnswer
 
     /// <summary>
     /// Create a new question with the given text and answer.
@@ -13,7 +19,10 @@ module Questions =
     /// <param name="answer">The answer to the question.</param>
     /// <returns>A new question with the given text and answer.</returns>
     let createQuestion text answer =
-        { Text = text; Answer = answer }
+        match (String.IsNullOrWhiteSpace(text), String.IsNullOrWhiteSpace(answer)) with
+        | true, _ -> Error EmptyText
+        | _, true -> Error EmptyAnswer
+        | _ -> Ok { Text = text; Answer = answer }
 
     /// <summary>
     /// Get the text of a question.
