@@ -1,7 +1,7 @@
-﻿namespace OpenRevisorCore.Tests
+﻿namespace Jimmaphy.OpenRevisorCore.Tests
 
 open Xunit
-open OpenRevisorCore.Questions
+open Jimmaphy.OpenRevisorCore.Questions
 
 module QuestionsTests =
 

@@ -1,8 +1,8 @@
 ﻿using Microsoft.FSharp.Collections;
 using Microsoft.FSharp.Core;
-using OpenRevisorCore;
+using Jimmaphy.OpenRevisorCore;
 
-namespace OpenRevisorConsole
+namespace Jimmaphy.OpenRevisorConsole
 {
     internal class Program
     {
